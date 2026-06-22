@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HÉLIX — PC sur-mesure & watercooling custom</title>
+  <meta name="description" content="Hélix conçoit des PC haute performance au watercooling custom : pensés, assemblés et testés pièce par pièce.">
+
+  <!-- Polices -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Styles du site (toutes les couleurs/tailles sont des variables dans ce fichier) -->
+  <link rel="stylesheet" href="./Helix.css">
+
+  <!-- Runtime DC, puis logique du composant -->
+  <script src="./support.js"></script>
+  <script src="./Helix.js"></script>
+</head>
+<body>
+<x-dc>
+
+<!-- Conteneur racine : porte les variables d'accent (modifiées en JS) -->
+<div ref="{{ setRoot }}" class="app">
+
+  <!-- ===================== PAGE D'ACCUEIL ===================== -->
+  <!-- .home démarre zoomée/floutée puis est révélée à la fin de l'intro -->
+  <div ref="{{ setHome }}" class="home">
+
+    <!-- NAVIGATION -->
+    <header class="nav">
+      <div class="brand">
+        <div class="brand__mark" aria-hidden="true"></div>
+        <span class="brand__name">HÉLIX</span>
+      </div>
+      <nav class="nav__links">
+        <a href="#realisations" onClick="{{ scrollWork }}" class="nav-link">Réalisations</a>
+        <span class="nav-note">Watercooling custom</span>
+        <button type="button" onClick="{{ openQuote }}" class="btn btn-accent btn-sm">Demander un devis</button>
+      </nav>
+    </header>
+
+    <!-- HERO — version centrée -->
+    <sc-if value="{{ heroCentre }}" hint-placeholder-val="{{ true }}">
+      <section class="hero">
+        <div class="hero__glow" aria-hidden="true"></div>
+        <div class="hero__inner">
+          <div class="eyebrow">// ATELIER DE BUILDS SUR-MESURE</div>
+          <h1 class="hero__title">Des machines d'exception,<br>montées à la main.</h1>
+          <p class="hero__lead">Hélix conçoit des PC haute performance au watercooling custom — pensés, assemblés et testés pièce par pièce, jusqu'au moindre tube.</p>
+          <div class="hero__actions">
+            <button type="button" onClick="{{ openQuote }}" class="btn btn-accent btn-lg">Demander un devis</button>
+            <button type="button" onClick="{{ scrollWork }}" class="btn btn-ghost btn-lg">Voir les réalisations</button>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- HERO — version deux colonnes -->
+    <sc-if value="{{ heroSplit }}" hint-placeholder-val="{{ false }}">
+      <section class="hero-split">
+        <div>
+          <div class="eyebrow">// ATELIER DE BUILDS SUR-MESURE</div>
+          <h1 class="hero__title">Des machines d'exception, montées à la main.</h1>
+          <p class="hero__lead">Hélix conçoit des PC haute performance au watercooling custom — pensés, assemblés et testés pièce par pièce.</p>
+          <div class="hero__actions">
+            <button type="button" onClick="{{ openQuote }}" class="btn btn-accent btn-lg">Demander un devis</button>
+            <button type="button" onClick="{{ scrollWork }}" class="btn btn-ghost btn-lg">Voir les réalisations</button>
+          </div>
+        </div>
+        <div class="hero-media">
+          <div class="hero-media__glow" aria-hidden="true"></div>
+          <div class="hero-media__label">[ image ] rendu — build phare · vue 3/4</div>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- RÉALISATIONS -->
+    <section ref="{{ setWork }}" id="realisations" class="work">
+      <div class="work__head">
+        <div>
+          <div class="eyebrow">// RÉALISATIONS</div>
+          <h2 class="work__title">Quelques machines sorties de l'atelier</h2>
+        </div>
+        <p class="work__note">Chaque build est unique, monté sur commande et validé sur banc 24 h.</p>
+      </div>
+
+      <!-- Grille générée à partir de la liste `builds` (voir Helix.js) -->
+      <div class="work__grid">
+        <sc-for list="{{ builds }}" as="build" hint-placeholder-count="6">
+          <article class="card">
+            <!-- Vignette « image » du build -->
+            <div class="card__media">
+              <div class="card__media-glow" aria-hidden="true"></div>
+              <div class="card__media-label">[ image ] {{ build.caption }}</div>
+            </div>
+            <!-- Détails du build -->
+            <div class="card__body">
+              <div class="card__head">
+                <h3 class="card__name">{{ build.name }}</h3>
+                <span class="card__num">N°{{ build.num }}</span>
+              </div>
+              <p class="card__tag">{{ build.tag }}</p>
+              <div class="card__specs">
+                <div class="spec"><span class="spec__key">CPU</span><span class="spec__val">{{ build.cpu }}</span></div>
+                <div class="spec"><span class="spec__key">GPU</span><span class="spec__val">{{ build.gpu }}</span></div>
+                <div class="spec"><span class="spec__key">Refroidissement</span><span class="spec__val">{{ build.cool }}</span></div>
+                <div class="spec"><span class="spec__key">Tubage</span><span class="spec__val">{{ build.tube }}</span></div>
+              </div>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- BANDE DEVIS -->
+    <section class="cta">
+      <div class="cta__panel">
+        <div class="cta__glow" aria-hidden="true"></div>
+        <div class="cta__inner">
+          <div class="eyebrow">// PARLONS DE VOTRE CONFIG</div>
+          <h2 class="cta__title">Un projet de build en tête ?</h2>
+          <p class="cta__lead">Décrivez votre besoin, on revient vers vous sous 48 h avec une proposition détaillée et chiffrée.</p>
+          <button type="button" onClick="{{ openQuote }}" class="btn btn-accent btn-xl">Demander un devis</button>
+          <div class="cta__contact">contact@helix-builds.fr</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIED DE PAGE -->
+    <footer class="footer">
+      <span class="footer__brand">HÉLIX</span>
+      <span class="footer__meta">© 2026 · Builds PC sur-mesure · Watercooling custom</span>
+    </footer>
+  </div>
+
+  <!-- ===================== MODALE DEVIS ===================== -->
+  <sc-if value="{{ quoteOpen }}" hint-placeholder-val="{{ false }}">
+    <!-- Clic sur le fond = fermeture ; clic dans le panneau = stoppé (voir `stop`) -->
+    <div onClick="{{ closeQuote }}" class="modal" role="dialog" aria-modal="true" aria-label="Demander un devis">
+      <div onClick="{{ stop }}" class="modal__panel">
+
+        <!-- Écran de confirmation (après envoi) -->
+        <sc-if value="{{ quoteSent }}" hint-placeholder-val="{{ false }}">
+          <div class="quote-done">
+            <div class="quote-done__check" aria-hidden="true">✓</div>
+            <h3 class="quote-done__title">Demande envoyée</h3>
+            <p class="quote-done__text">Merci ! On revient vers vous sous 48 h avec une proposition détaillée.</p>
+            <button type="button" onClick="{{ closeQuote }}" class="btn btn-accent btn-md">Fermer</button>
+          </div>
+        </sc-if>
+
+        <!-- Formulaire de demande -->
+        <sc-if value="{{ quoteForm }}" hint-placeholder-val="{{ true }}">
+          <div class="modal__head">
+            <div>
+              <div class="eyebrow eyebrow--sm">// DEVIS GRATUIT</div>
+              <h3 class="modal__title">Demander un devis</h3>
+            </div>
+            <button type="button" onClick="{{ closeQuote }}" class="modal__close" aria-label="Fermer">×</button>
+          </div>
+          <div class="form">
+            <input ref="{{ setFieldNom }}" class="field" placeholder="Nom" aria-label="Nom">
+            <input ref="{{ setFieldEmail }}" class="field" type="email" placeholder="Email" aria-label="Email">
+            <select ref="{{ setFieldBuild }}" class="field" aria-label="Type de build">
+              <option>Gaming haut de gamme</option>
+              <option>Station de travail</option>
+              <option>Pièce unique / showcase</option>
+            </select>
+            <select ref="{{ setFieldBudget }}" class="field" aria-label="Budget">
+              <option>3 000 à 5 000 €</option>
+              <option>5 000 à 8 000 €</option>
+              <option>8 000 € et plus</option>
+            </select>
+            <textarea ref="{{ setFieldProjet }}" class="field" placeholder="Décrivez votre projet (usage, composants souhaités, esthétique…)" rows="3" aria-label="Votre projet"></textarea>
+            <sc-if value="{{ quoteError }}" hint-placeholder-val="{{ false }}">
+              <p class="form__error">{{ quoteError }}</p>
+            </sc-if>
+            <button type="button" onClick="{{ submitQuote }}" class="btn btn-accent btn-lg btn-block form__submit">Envoyer la demande</button>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ===================== CANVAS D'INTRO ===================== -->
+  <canvas ref="{{ setCanvas }}" class="intro-canvas" aria-hidden="true"></canvas>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;cyan&quot;,&quot;options&quot;:[&quot;cyan&quot;,&quot;electric&quot;,&quot;ice&quot;],&quot;tsType&quot;:&quot;'cyan'|'electric'|'ice'&quot;},&quot;introMotion&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;vortex&quot;,&quot;options&quot;:[&quot;vortex&quot;,&quot;warp&quot;,&quot;calme&quot;],&quot;tsType&quot;:&quot;'vortex'|'warp'|'calme'&quot;},&quot;heroLayout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;centre&quot;,&quot;options&quot;:[&quot;centre&quot;,&quot;split&quot;],&quot;tsType&quot;:&quot;'centre'|'split'&quot;}}">
+  // La logique vit dans Helix.js (chargé dans le <head>).
+  // Le runtime nous fournit DCLogic ; on construit la classe à partir de la fabrique.
+  const Component = window.createHelixComponent(DCLogic);
+</script>
+</body>
+</html>
