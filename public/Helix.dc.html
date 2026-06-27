@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HÉLIX — PC sur-mesure & watercooling custom</title>
-  <meta name="description" content="Hélix conçoit des PC haute performance au watercooling custom : pensés, assemblés et testés pièce par pièce.">
+  <title>SG'pc sur-mesure & watercooling custom</title>
+  <meta name="description" content="SG'pc conçoit des PC haute performance au watercooling custom : pensés, assemblés et testés pièce par pièce.">
 
   <!-- Polices -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +32,7 @@
     <header class="nav">
       <div class="brand">
         <div class="brand__mark" aria-hidden="true"></div>
-        <span class="brand__name">HÉLIX</span>
+        <span class="brand__name">SG'pc</span>
       </div>
       <nav class="nav__links">
         <a href="#realisations" onClick="{{ scrollWork }}" class="nav-link">Réalisations</a>
@@ -48,7 +48,7 @@
         <div class="hero__inner">
           <div class="eyebrow">// ATELIER DE BUILDS SUR-MESURE</div>
           <h1 class="hero__title">Des machines d'exception,<br>montées à la main.</h1>
-          <p class="hero__lead">Hélix conçoit des PC haute performance au watercooling custom — pensés, assemblés et testés pièce par pièce, jusqu'au moindre tube.</p>
+          <p class="hero__lead">SG'pc conçoit des PC haute performance au watercooling custom — pensés, assemblés et testés pièce par pièce, jusqu'au moindre tube.</p>
           <div class="hero__actions">
             <button type="button" onClick="{{ openQuote }}" class="btn btn-accent btn-lg">Demander un devis</button>
             <button type="button" onClick="{{ scrollWork }}" class="btn btn-ghost btn-lg">Voir les réalisations</button>
@@ -63,7 +63,7 @@
         <div>
           <div class="eyebrow">// ATELIER DE BUILDS SUR-MESURE</div>
           <h1 class="hero__title">Des machines d'exception, montées à la main.</h1>
-          <p class="hero__lead">Hélix conçoit des PC haute performance au watercooling custom — pensés, assemblés et testés pièce par pièce.</p>
+          <p class="hero__lead">SG'pc conçoit des PC haute performance au watercooling custom — pensés, assemblés et testés pièce par pièce.</p>
           <div class="hero__actions">
             <button type="button" onClick="{{ openQuote }}" class="btn btn-accent btn-lg">Demander un devis</button>
             <button type="button" onClick="{{ scrollWork }}" class="btn btn-ghost btn-lg">Voir les réalisations</button>
@@ -93,7 +93,7 @@
             <!-- Vignette « image » du build -->
             <div class="card__media">
               <div class="card__media-glow" aria-hidden="true"></div>
-              <div class="card__media-label">[ image ] {{ build.caption }}</div>
+              <img src="{{ build.img }}" alt="{{ build.caption }}" class="card__media-img">
             </div>
             <!-- Détails du build -->
             <div class="card__body">
@@ -123,14 +123,14 @@
           <h2 class="cta__title">Un projet de build en tête ?</h2>
           <p class="cta__lead">Décrivez votre besoin, on revient vers vous sous 48 h avec une proposition détaillée et chiffrée.</p>
           <button type="button" onClick="{{ openQuote }}" class="btn btn-accent btn-xl">Demander un devis</button>
-          <div class="cta__contact">contact@helix-builds.fr</div>
+          <div class="cta__contact"></div>
         </div>
       </div>
     </section>
 
     <!-- PIED DE PAGE -->
     <footer class="footer">
-      <span class="footer__brand">HÉLIX</span>
+      <span class="footer__brand">SG'pc</span>
       <span class="footer__meta">© 2026 · Builds PC sur-mesure · Watercooling custom</span>
     </footer>
   </div>
@@ -169,7 +169,8 @@
               <option>Pièce unique / showcase</option>
             </select>
             <select ref="{{ setFieldBudget }}" class="field" aria-label="Budget">
-              <option>3 000 à 5 000 €</option>
+              <option>1200 à 2500 €</option>
+              <option>2500 à 5 000 €</option>
               <option>5 000 à 8 000 €</option>
               <option>8 000 € et plus</option>
             </select>
@@ -195,4 +196,4 @@
   const Component = window.createHelixComponent(DCLogic);
 </script>
 </body>
-</html>
+</html> 

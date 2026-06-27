@@ -345,3 +345,24 @@ textarea.field { resize: vertical; }
   }
   .home { transform: none; filter: none; }
 }
+
+/* ========================================================================== */
+/* carte des build  */
+/* ========================================================================== */
+.card__media {
+  aspect-ratio: 4 / 3; /* ou 16 / 9 */
+  position: relative;
+  overflow: hidden;
+}
+.card__media-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.card__media-glow {
+  z-index: 1; /* reste au-dessus de l'image, comme effet visuel */
+  pointer-events: none;
+}

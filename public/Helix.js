@@ -275,13 +275,13 @@ window.createHelixComponent = function (DCLogic) {
         stop: this.stop,
         // Catalogue des builds affichés dans la grille « Réalisations »
         builds: [
-          { num: '01', name: 'MONOLITH',   tag: 'Full-tower · dual-loop custom',  cpu: 'Ryzen 9 9950X3D',    gpu: 'RTX 5090 OC', cool: 'Watercooling 360 + 420 mm',  tube: 'Tubes rigides PETG', caption: 'rendu — MONOLITH · vue 3/4' },
-          { num: '02', name: 'OBSIDIENNE', tag: 'Distro-plate sur-mesure',        cpu: 'Core i9-14900KS',    gpu: 'RTX 5090',    cool: 'Distro-plate gravée',        tube: 'PETG noir fumé',     caption: 'rendu — OBSIDIENNE · profil' },
-          { num: '03', name: 'CRYO',       tag: 'Loop blanc, finition glacier',   cpu: 'Ryzen 9 9950X',      gpu: 'RTX 5080',    cool: 'Double radiateur 360 mm',    tube: 'PETG translucide',   caption: 'rendu — CRYO · vue avant' },
-          { num: '04', name: 'ATLAS',      tag: 'Station de travail HEDT',        cpu: 'Threadripper 7980X', gpu: 'RTX 5090',    cool: 'Mono-bloc CPU custom',       tube: 'Tubes rigides',      caption: 'rendu — ATLAS · vue 3/4' },
-          { num: '05', name: 'AURORE',     tag: 'Verre trempé, RGB discret',      cpu: 'Ryzen 7 9800X3D',    gpu: 'RTX 5080',    cool: 'AIO 420 mm custom',          tube: 'Soft-tube gainé',    caption: 'rendu — AURORE · profil' },
-          { num: '06', name: 'FORGE-01',   tag: 'Pièce unique numérotée',         cpu: 'Core i9-14900K',     gpu: 'RTX 5090',    cool: 'Loop dual + réservoir gravé', tube: 'PETG sur-mesure',   caption: 'rendu — FORGE-01 · vue avant' },
-        ],
+          { num: '01', name: 'MONOLITH',   tag: 'Full-tower · dual-loop custom',  cpu: 'Ryzen 7 7800X3D',    gpu: 'RTX 5070 OC', cool: 'Watercooling 360mm', tube: 'Aucun', caption: 'rendu — MONOLITH · vue 3/4', img: './images/image.png' },
+        //   { num: '02', name: 'OBSIDIENNE', tag: 'Distro-plate sur-mesure',        cpu: 'Core i9-14900KS',    gpu: 'RTX 5090',    cool: 'Distro-plate gravée',        tube: 'PETG noir fumé',     caption: 'rendu — OBSIDIENNE · profil' },
+        //   { num: '03', name: 'CRYO',       tag: 'Loop blanc, finition glacier',   cpu: 'Ryzen 9 9950X',      gpu: 'RTX 5080',    cool: 'Double radiateur 360 mm',    tube: 'PETG translucide',   caption: 'rendu — CRYO · vue avant' },
+        //   { num: '04', name: 'ATLAS',      tag: 'Station de travail HEDT',        cpu: 'Threadripper 7980X', gpu: 'RTX 5090',    cool: 'Mono-bloc CPU custom',       tube: 'Tubes rigides',      caption: 'rendu — ATLAS · vue 3/4' },
+        //   { num: '05', name: 'AURORE',     tag: 'Verre trempé, RGB discret',      cpu: 'Ryzen 7 9800X3D',    gpu: 'RTX 5080',    cool: 'AIO 420 mm custom',          tube: 'Soft-tube gainé',    caption: 'rendu — AURORE · profil' },
+        //   { num: '06', name: 'FORGE-01',   tag: 'Pièce unique numérotée',         cpu: 'Core i9-14900K',     gpu: 'RTX 5090',    cool: 'Loop dual + réservoir gravé', tube: 'PETG sur-mesure',   caption: 'rendu — FORGE-01 · vue avant' },
+        ]
       };
     }
   };
